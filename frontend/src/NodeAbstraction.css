@@ -1,0 +1,51 @@
+/* src/nodes/NodeAbstraction.css */
+.node-container {
+    width: 200px;
+    height: 200px;
+    border: 1.5px solid black;
+    font-weight: bold;
+    border-radius: 5.5px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* background-color: purple; */
+  }
+  
+  .node-header {
+    color: black;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .node-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-items: center;
+    
+  }
+  
+  .node-label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9em;
+  }
+  
+  .node-input, .node-select {
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1.5px solid  black;
+    font-size: 0.9em;
+  }
+  
+  .node-input:focus, .node-select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.25);
+  }
+  
