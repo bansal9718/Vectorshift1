@@ -87,7 +87,7 @@ export const PipelineUI = () => {
           position,
           data: getInitNodeData(nodeID, type),
         };
-        console.log('New Node' , newNode);
+        // console.log('New Node' , newNode);
         addNode(newNode);
       }
     },

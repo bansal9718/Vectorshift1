@@ -1,28 +1,29 @@
 // src/nodes/InputNode.js
-import React from 'react';
-import NodeAbstraction from '../NodeAbstraction';
-import { Position } from 'reactflow';
+import React from "react";
+import NodeAbstraction from "../NodeAbstraction";
+import { Position } from "reactflow";
+import { MdInput } from "react-icons/md";
 
 export const InputNode = ({ id, data }) => {
   return (
     <NodeAbstraction
       id={id}
       data={data}
-      title="Input"
-      handleNameChange={(name) => console.log('Name changed to:', name)}
-      handleTypeChange={(type) => console.log('Type changed to:', type)}
-      typeOptions={[
-        { value: 'Text', label: 'Text' },
-        
-      ]}
+      title={
+        <div>
+          Input <MdInput style={{marginLeft:'7px'}} />
+        </div>
+      }
+      handleNameChange={(name) => console.log("Name changed to:", name)}
+      handleTypeChange={(type) => console.log("Type changed to:", type)}
+      typeOptions={[{ value: "Text", label: "Text" }]}
       handlesConfig={[
-        { type: 'source', position: Position.Right, id: 'value' }
+        { type: "source", position: Position.Right, id: "value" },
       ]}
-      
     >
-      <div>
+      <div >
         <span>Input Node</span>
       </div>
-   </NodeAbstraction>
+    </NodeAbstraction>
   );
-}
+};

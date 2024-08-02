@@ -32,15 +32,8 @@ export const SubmitButton = () => {
       }
 
       const data = await response.json();
-      //   console.log(data);
       setResult(data);
       setModalIsOpen(true);
-      //   alert
-      //   Pipeline Analysis Result:
-      //   - Number of Nodes: ${data.num_nodes}
-      //   - Number of Edges: ${data.num_edges}
-      //   - Directed Acyclic Graph (DAG): ${data.is_dag ? "Yes" : "No"}
-      // `);
     } catch (error) {
       console.error("Error submitting pipeline:", error);
       alert("Failed to submit pipeline. Please check the console for errors.");
@@ -50,7 +43,6 @@ export const SubmitButton = () => {
   return (
     <>
       <button
-        // style={styles.button}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onMouseDown={() => setIsActive(true)}
@@ -103,14 +95,14 @@ export const SubmitButton = () => {
 };
 const styles = {
   button: {
+    marginTop:'20px' ,
     padding: "12px 24px", // Increase padding for better click area
-    backgroundColor: "#28a745", // Green background
-    color: "white", // White text color
+    backgroundColor: "#faf884", // Green background
+    color: "black", // White text color
     borderRadius: "6px", // Rounded corners
     cursor: "pointer", // Pointer cursor on hover
     fontSize: "16px", // Font size
     fontWeight: "600", // Slightly heavier font weight
-    textTransform: "uppercase", // Uppercase text
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", // Shadow effect
     transition:
       "background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease", // Smooth transitions
@@ -118,8 +110,9 @@ const styles = {
     border: "1px solid transparent", // Border for click feedback
   },
   buttonHover: {
-    backgroundColor: "#218838", // Darker green on hover
+    backgroundColor: "yellow", // Darker green on hover
     boxShadow: "0 6px 12px rgba(0, 0, 0, 0.3)", // Enhanced shadow on hover
+    color: "black",
   },
   buttonActive: {
     transform: "scale(0.98)", // Slightly scale down on click

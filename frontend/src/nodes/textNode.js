@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import NodeAbstraction from "../NodeAbstraction";
 import { Position } from "reactflow";
+import { IoDocumentTextOutline } from "react-icons/io5";
 
 export const TextNode = ({ id, data, updateNodeData }) => {
   const [text, setText] = useState(data?.text || "{{input}}");
@@ -17,12 +18,13 @@ export const TextNode = ({ id, data, updateNodeData }) => {
         type: "source",
         position: Position.Left,
         id: match[1], // Variable name as handle id
-        style: { top: `${(index + 1) * 30}px` }, // Adjust spacing as needed
+        style: { top: `${(index + 1) * 30}px` },
       }));
-
       // Update handlesConfig state
-      setHandlesConfig(newHandles);
+      setHandlesConfig(newHandles); // New array
     };
+    console.log("Handles Config:", handlesConfig);
+
     // Calls extractHandlesFromText Function to match with Regular Expression
     extractHandlesFromText();
   }, [text, data]);
@@ -33,15 +35,10 @@ export const TextNode = ({ id, data, updateNodeData }) => {
       textarea.style.height = "auto";
 
       // Calculate width and height based on input element
-      const newWidth =
-        Math.max(textareaRef.scrollWidth ,200) + "px";
-      const newHeight =
-        Math.max(textareaRef.scrollHeight ,60) + "px";
+      const newWidth = Math.max(textareaRef.scrollWidth, 200) + "px";
+      const newHeight = Math.max(textareaRef.scrollHeight, 60) + "px";
       setNodeSize({ width: newWidth, height: newHeight });
     }
-    // console.log(textarea.scrollHeight);
-    console.log(textarea.scrollWidth);
-
   }, [text]);
 
   const handleTextChange = (event) => {
@@ -51,7 +48,12 @@ export const TextNode = ({ id, data, updateNodeData }) => {
     <NodeAbstraction
       id={id}
       data={{ ...data, text, handlesConfig }}
-      title="Text"
+      title={
+        <div>
+          Text
+          <IoDocumentTextOutline style={{ marginLeft: "7px" }} />
+        </div>
+      }
       handlesConfig={handlesConfig}
     >
       <div
@@ -71,16 +73,18 @@ export const TextNode = ({ id, data, updateNodeData }) => {
             value={text}
             onChange={handleTextChange}
             style={{
-              width: '100%',
-              height: '100%',
-              boxSizing: 'border-box',
-              resize: 'none', // Prevent manual resize
+              width: "100%",
+              height: "100%",
+              boxSizing: "border-box",
+              resize: "none", // Prevent manual resize
+              marginTop:'10px'
             }}
           />
         </label>
       </div>
       <div>
         <br />
+
         <span>Text Node</span>
       </div>
     </NodeAbstraction>

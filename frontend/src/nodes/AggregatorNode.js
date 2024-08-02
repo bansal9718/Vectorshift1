@@ -2,13 +2,18 @@
 import React from 'react';
 import NodeAbstraction from '../NodeAbstraction';
 import { Position } from 'reactflow';
+import { GrAggregate } from "react-icons/gr";
 
 export const AggregatorNode = ({ id, data }) => {
   return (
     <NodeAbstraction
       id={id}
       data={data}
-      title="Aggregator"
+      title= {<div>
+      Aggregate
+          <GrAggregate style={{marginLeft:"9px"}} />
+  
+        </div>}
       handleNameChange={(name) => console.log('Aggregator name changed to:', name)}
       handleTypeChange={(type) => console.log('Aggregator type changed to:', type)}
       typeOptions={[
@@ -20,8 +25,8 @@ export const AggregatorNode = ({ id, data }) => {
         { type: 'target', position: Position.Left, id: 'input' }
       ]}
     >
-      <div>
-        <span>Aggregator Node</span>
+      <div >
+        <span >Aggregator Node</span>
       </div>
     </NodeAbstraction>
   );

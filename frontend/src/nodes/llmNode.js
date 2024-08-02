@@ -1,22 +1,33 @@
 // src/nodes/LLMNode.js
-import React from 'react';
-import NodeAbstraction from '../NodeAbstraction';
-import { Position } from 'reactflow';
+import React from "react";
+import NodeAbstraction from "../NodeAbstraction";
+import { Position } from "reactflow";
+import { GiArtificialHive } from "react-icons/gi";
 
 export const LLMNode = ({ id }) => {
   return (
     <NodeAbstraction
       id={id}
-      title="LLM"
+      title={
+        <div>
+          LLM
+          <GiArtificialHive style={{ marginLeft: "11px" }} />
+        </div>
+      }
       handlesConfig={[
-        { type: 'target', position: Position.Left, id: 'system', style: { top: `${100/3}%` } },
-        { type: 'target', position: Position.Left, id: 'prompt', style: { top: `${200/3}%` } },
-        { type: 'source', position: Position.Right, id: 'response' }
+        {
+          type: "target",
+          position: Position.Left,
+          id: "system",
+          style: { top: `${100 / 3}%` },
+        },
+
+        { type: "source", position: Position.Right, id: "response" },
       ]}
     >
-      <div>
+      <div style={{ textAlign: "center", marginBottom: "90px" }}>
         <span>This is a LLM.</span>
       </div>
     </NodeAbstraction>
   );
-}
+};

@@ -1,7 +1,8 @@
 // src/nodes/NodeAbstraction.js
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { Handle } from "reactflow";
 import "./NodeAbstraction.css";
+
 const NodeAbstraction = ({
   id,
   data,
@@ -19,7 +20,7 @@ const NodeAbstraction = ({
 
   return (
     <div className="node-container">
-      <div className="node-header">
+      <div className="node-header" >
         <h3>{title}</h3>
       </div>
 

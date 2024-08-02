@@ -2,13 +2,18 @@
 import React from 'react';
 import NodeAbstraction from '../NodeAbstraction';
 import { Position } from 'reactflow';
+import { TbTransform } from "react-icons/tb";
 
 export const TransformNode = ({ id, data }) => {
   return (
     <NodeAbstraction
       id={id}
       data={data}
-      title="Transform"
+      title= {<div>
+      Transform
+        <TbTransform style={{marginLeft:"9px"}} />
+
+      </div>}
       handleNameChange={(name) => console.log('Transform name changed to:', name)}
       handleTypeChange={(type) => console.log('Transform type changed to:', type)}
       typeOptions={[
