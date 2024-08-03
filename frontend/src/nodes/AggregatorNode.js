@@ -31,7 +31,7 @@ export const AggregatorNode = ({ id, data }) => {
       ]}
     >
       <div>
-        <span>Aggregator Node</span>
+        <span style={{ color: "gray" }}>Aggregates the node data</span>
       </div>
     </NodeAbstraction>
   );

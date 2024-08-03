@@ -30,8 +30,8 @@ export const TransformNode = ({ id, data }) => {
         { type: "target", position: Position.Left, id: "input" },
       ]}
     >
-      <div>
-        <span>Transform Node</span>
+      <div style={{paddingBottom:'20px'}}>
+        <span style={{color:'gray'}}>Transform the node on specified features</span>
       </div>
     </NodeAbstraction>
   );

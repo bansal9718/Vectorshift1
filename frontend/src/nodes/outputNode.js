@@ -27,7 +27,9 @@ export const OutputNode = ({ id, data }) => {
       ]}
     >
       <div>
-        <span>Output Node</span>
+        <span style={{ color: "gray"}}>
+          Outputs the node data as specified
+        </span>
       </div>
     </NodeAbstraction>
   );

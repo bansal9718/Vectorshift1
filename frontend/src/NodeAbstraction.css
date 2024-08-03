@@ -54,3 +54,10 @@
     box-shadow: 0 0 3px rgba(0, 123, 255, 0.25);
   }
   
+  .span-node { 
+    color: "gray";
+  }
+
+  .span-div {
+    padding-bottom:'20px';
+  }

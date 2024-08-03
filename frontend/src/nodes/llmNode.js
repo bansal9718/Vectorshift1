@@ -26,7 +26,7 @@ export const LLMNode = ({ id }) => {
       ]}
     >
       <div style={{ marginBottom: "120px" }}>
-        <span>This is a LLM.</span>
+        <span style={{color:'gray'}}>This is a LLM.</span>
       </div>
     </NodeAbstraction>
   );

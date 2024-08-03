@@ -71,7 +71,9 @@ export const TextNode = ({ id, data }) => {
       </div>
       <div>
         <br />
-        <span>Text Node</span>
+        <span style={{ color: "gray", paddingBottom: "30px" }}>
+          Takes Javascript Variables as inputs
+        </span>
       </div>
     </NodeAbstraction>
   );

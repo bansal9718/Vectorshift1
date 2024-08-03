@@ -27,7 +27,7 @@ export const FilterNode = ({ id, data }) => {
       ]}
     >
       <div>
-        <span>Filter Node</span>
+        <span style={{ color: "gray" }}>Filters the node data </span>
       </div>
     </NodeAbstraction>
   );

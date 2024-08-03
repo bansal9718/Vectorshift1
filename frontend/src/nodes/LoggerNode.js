@@ -27,7 +27,7 @@ export const LoggerNode = ({ id, data }) => {
       ]}
     >
       <div>
-        <span>Logger Node</span>
+        <span style={{ color: "gray" }}>Logs the data report </span>
       </div>
     </NodeAbstraction>
   );

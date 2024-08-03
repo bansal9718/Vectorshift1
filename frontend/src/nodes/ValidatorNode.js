@@ -30,8 +30,8 @@ export const ValidatorNode = ({ id, data }) => {
         { type: "target", position: Position.Left, id: "input" },
       ]}
     >
-      <div>
-        <span>Validator Node</span>
+      <div style={{paddingBottom:'20px'}}>
+        <span style={{color:'gray'}}>Validates the Data Passed</span>
       </div>
     </NodeAbstraction>
   );
