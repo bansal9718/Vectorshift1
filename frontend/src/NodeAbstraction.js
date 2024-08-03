@@ -14,6 +14,7 @@ const NodeAbstraction = ({
   children,
 }) => {
   const [currName, setCurrName] = useState(data?.name || id);
+
   const [currType, setCurrType] = useState(
     data?.type || typeOptions?.[0]?.value || ""
   );
