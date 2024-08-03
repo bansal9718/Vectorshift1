@@ -11,7 +11,8 @@ export const InputNode = ({ id, data }) => {
       data={data}
       title={
         <div>
-          Input <MdInput style={{marginLeft:'7px'}} />
+          Input
+          <MdInput style={{ marginLeft: "10px" }} />
         </div>
       }
       handleNameChange={(name) => console.log("Name changed to:", name)}
@@ -21,7 +22,7 @@ export const InputNode = ({ id, data }) => {
         { type: "source", position: Position.Right, id: "value" },
       ]}
     >
-      <div >
+      <div>
         <span>Input Node</span>
       </div>
     </NodeAbstraction>

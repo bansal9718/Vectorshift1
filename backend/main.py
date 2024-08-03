@@ -1,11 +1,11 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
 from pydantic import BaseModel
 from typing import List, Dict, Any
 import networkx as nx
 
 app = FastAPI()
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Allow all origins; adjust as needed for security
@@ -17,9 +17,9 @@ class Pipeline(BaseModel):
     nodes: List[Dict[str, Any]]
     edges: List[Dict[str, Any]]
 
-@app.get("/")
+@app.get("/")    
 def read_root():
-    return {"Ping": "Pong"}
+    return {"Ping": "Pong"}   #basic Health check endpoint
 
 @app.post("/pipelines/parse")
 def parse_pipeline(pipeline: Pipeline):
@@ -48,3 +48,13 @@ def parse_pipeline(pipeline: Pipeline):
         "num_edges": num_edges,
         "is_dag": is_dag
     }
+
+
+
+
+
+
+
+
+
+

@@ -20,8 +20,8 @@ const NodeAbstraction = ({
 
   return (
     <div className="node-container">
-      <div className="node-header" >
-        <h3>{title}</h3>
+      <div className="node-header">
+        <h3 style={{ color: "#F75D59" }}>{title}</h3>
       </div>
 
       <div className="node-content">
@@ -61,7 +61,7 @@ const NodeAbstraction = ({
       </div>
       {handlesConfig.map((handle, index) => (
         <Handle
-          key={index}
+          key={handle.id}
           type={handle.type}
           position={handle.position}
           id={`${id}-${handle.id}`}

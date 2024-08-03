@@ -10,6 +10,7 @@ export const useStore = createWithEqualityFn((set, get) => ({
   nodes: [],
   edges: [],
   nodeIDs: {},
+
   getNodeID: (type) => {
     const newIDs = { ...get().nodeIDs };
     if (newIDs[type] === undefined) {
@@ -47,6 +48,7 @@ export const useStore = createWithEqualityFn((set, get) => ({
       ),
     });
   },
+
   updateNodeField: (nodeId, fieldName, fieldValue) => {
     set({
       nodes: get().nodes.map((node) => {

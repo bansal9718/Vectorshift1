@@ -1,21 +1,21 @@
 // Displays the drag-and-drop UI
 // --------------------------------------------------
 
-import React from 'react';
-import { useState, useRef, useCallback } from 'react';
-import ReactFlow, { Controls, Background, MiniMap } from 'reactflow';
-import {useStore} from './store'
-import { shallow } from 'zustand/shallow';
-import { InputNode } from './nodes/inputNode';
-import { LLMNode } from './nodes/llmNode.js';
-import { OutputNode } from './nodes/outputNode';
-import { TextNode } from './nodes/textNode';
-import { FilterNode } from './nodes/FilterNode';
-import { TransformNode } from './nodes/TransformNode';
-import { AggregatorNode } from './nodes/AggregatorNode';
-import { ValidatorNode } from './nodes/ValidatorNode';
-import { LoggerNode } from './nodes/LoggerNode';
-import 'reactflow/dist/style.css';
+import React from "react";
+import { useState, useRef, useCallback } from "react";
+import ReactFlow, { Controls, Background, MiniMap } from "reactflow";
+import { useStore } from "./store";
+import { shallow } from "zustand/shallow";
+import { InputNode } from "./nodes/inputNode";
+import { LLMNode } from "./nodes/llmNode.js";
+import { OutputNode } from "./nodes/outputNode";
+import { TextNode } from "./nodes/textNode";
+import { FilterNode } from "./nodes/FilterNode";
+import { TransformNode } from "./nodes/TransformNode";
+import { AggregatorNode } from "./nodes/AggregatorNode";
+import { ValidatorNode } from "./nodes/ValidatorNode";
+import { LoggerNode } from "./nodes/LoggerNode";
+import "reactflow/dist/style.css";
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -65,8 +65,10 @@ export const PipelineUI = () => {
       event.preventDefault();
 
       const reactFlowBounds = reactFlowWrapper.current.getBoundingClientRect();
-      if (event?.dataTransfer?.getData('application/reactflow')) {
-        const appData = JSON.parse(event.dataTransfer.getData('application/reactflow'));
+      if (event?.dataTransfer?.getData("application/reactflow")) {
+        const appData = JSON.parse(
+          event.dataTransfer.getData("application/reactflow")
+        );
         const type = appData?.nodeType;
 
         // check if the dropped element is valid
@@ -75,7 +77,7 @@ export const PipelineUI = () => {
           return;
         }
 
-        const position = reactFlowInstance.project({
+        const position = reactFlowInstance.screenToFlowPosition({
           x: event.clientX - reactFlowBounds.left,
           y: event.clientY - reactFlowBounds.top,
         });
@@ -87,7 +89,6 @@ export const PipelineUI = () => {
           position,
           data: getInitNodeData(nodeID, type),
         };
-        // console.log('New Node' , newNode);
         addNode(newNode);
       }
     },
@@ -96,12 +97,12 @@ export const PipelineUI = () => {
 
   const onDragOver = useCallback((event) => {
     event.preventDefault();
-    event.dataTransfer.dropEffect = 'move';
+    event.dataTransfer.dropEffect = "move";
   }, []);
 
   return (
     <>
-      <div ref={reactFlowWrapper} style={{ width: '100vw', height: '70vh' }}>
+      <div ref={reactFlowWrapper} style={{ width: "100vw", height: "70vh" }}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -114,7 +115,7 @@ export const PipelineUI = () => {
           nodeTypes={nodeTypes}
           proOptions={proOptions}
           snapGrid={[gridSize, gridSize]}
-          connectionLineType='smoothstep'
+          connectionLineType="smoothstep"
         >
           <Background color="#aaa" gap={gridSize} />
           <Controls />

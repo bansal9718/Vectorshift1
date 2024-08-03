@@ -1,49 +1,54 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import NodeAbstraction from "../NodeAbstraction";
 import { Position } from "reactflow";
 import { IoDocumentTextOutline } from "react-icons/io5";
 
 export const TextNode = ({ id, data, updateNodeData }) => {
+  // State to manage the text input and handle configurations
   const [text, setText] = useState(data?.text || "{{input}}");
   const [handlesConfig, setHandlesConfig] = useState(data?.handlesConfig || []);
-  const [nodeSize, setNodeSize] = useState({ width: "200px", height: "90px" });
-  const textareaRef = useRef(null);
 
   useEffect(() => {
+    // Function to extract variable names surrounded by double curly brackets {{variable}}
     const extractHandlesFromText = () => {
-      // Regular expression to match variables in double curly braces
       const regex = /\{\{(\w+)\}\}/g;
       const matches = Array.from(text.matchAll(regex));
       const newHandles = matches.map((match, index) => ({
-        type: "source",
+        type: "target", // Ensure the type matches your use case
         position: Position.Left,
-        id: match[1], // Variable name as handle id
-        style: { top: `${(index + 1) * 30}px` },
+        id: match[1], // Ensure unique ID
+        style: { top: `${(index + 1) * 30}px` }, // Position handles vertically
       }));
-      // Update handlesConfig state
-      setHandlesConfig(newHandles); // New array
+       
+      setHandlesConfig(newHandles);
+      
     };
-    console.log("Handles Config:", handlesConfig);
 
-    // Calls extractHandlesFromText Function to match with Regular Expression
     extractHandlesFromText();
-  }, [text, data]);
-
-  useEffect(() => {
-    const textarea = textareaRef.current;
-    if (textarea) {
-      textarea.style.height = "auto";
-
-      // Calculate width and height based on input element
-      const newWidth = Math.max(textareaRef.scrollWidth, 200) + "px";
-      const newHeight = Math.max(textareaRef.scrollHeight, 60) + "px";
-      setNodeSize({ width: newWidth, height: newHeight });
-    }
-  }, [text]);
+  }, [text,id]);
 
   const handleTextChange = (event) => {
     setText(event.target.value);
   };
+
+  const textareaStyle = {
+    width: "90%",
+    height: "57%",
+    boxSizing: "border-box",
+    resize: "none",
+    marginTop: "14px",
+    borderRadius: "8px",
+    border: "1.5px solid black",
+  };
+
+  const containerStyle = {
+    overflow: "hidden",
+    boxSizing: "border-box",
+    display: "flex",
+    flexDirection: "column",
+    marginBottom: "60px",
+  };
+
   return (
     <NodeAbstraction
       id={id}
@@ -56,35 +61,18 @@ export const TextNode = ({ id, data, updateNodeData }) => {
       }
       handlesConfig={handlesConfig}
     >
-      <div
-        style={{
-          width: nodeSize.width,
-          height: nodeSize.height,
-          overflow: "hidden",
-          boxSizing: "border-box",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
+      <div style={containerStyle}>
         <label>
           Text:
           <textarea
-            ref={textareaRef}
             value={text}
             onChange={handleTextChange}
-            style={{
-              width: "100%",
-              height: "100%",
-              boxSizing: "border-box",
-              resize: "none", // Prevent manual resize
-              marginTop:'10px'
-            }}
+            style={textareaStyle}
           />
         </label>
       </div>
       <div>
         <br />
-
         <span>Text Node</span>
       </div>
     </NodeAbstraction>

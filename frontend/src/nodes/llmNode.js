@@ -25,9 +25,10 @@ export const LLMNode = ({ id }) => {
         { type: "source", position: Position.Right, id: "response" },
       ]}
     >
-      <div style={{ textAlign: "center", marginBottom: "90px" }}>
+      <div style={{ marginBottom: "120px" }}>
         <span>This is a LLM.</span>
       </div>
     </NodeAbstraction>
+    
   );
 };

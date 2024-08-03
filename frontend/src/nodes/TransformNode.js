@@ -1,7 +1,7 @@
 // src/nodes/TransformNode.js
-import React from 'react';
-import NodeAbstraction from '../NodeAbstraction';
-import { Position } from 'reactflow';
+import React from "react";
+import NodeAbstraction from "../NodeAbstraction";
+import { Position } from "reactflow";
 import { TbTransform } from "react-icons/tb";
 
 export const TransformNode = ({ id, data }) => {
@@ -9,20 +9,25 @@ export const TransformNode = ({ id, data }) => {
     <NodeAbstraction
       id={id}
       data={data}
-      title= {<div>
-      Transform
-        <TbTransform style={{marginLeft:"9px"}} />
-
-      </div>}
-      handleNameChange={(name) => console.log('Transform name changed to:', name)}
-      handleTypeChange={(type) => console.log('Transform type changed to:', type)}
+      title={
+        <div>
+          Transform
+          <TbTransform style={{ marginLeft: "9px" }} />
+        </div>
+      }
+      handleNameChange={(name) =>
+        console.log("Transform name changed to:", name)
+      }
+      handleTypeChange={(type) =>
+        console.log("Transform type changed to:", type)
+      }
       typeOptions={[
-        { value: 'Scale', label: 'Scale' },
-        { value: 'Rotate', label: 'Rotate' }
+        { value: "Scale", label: "Scale" },
+        { value: "Rotate", label: "Rotate" },
       ]}
       handlesConfig={[
-        { type: 'source', position: Position.Right, id: 'output' },
-        { type: 'target', position: Position.Left, id: 'input' }
+        { type: "source", position: Position.Right, id: "output" },
+        { type: "target", position: Position.Left, id: "input" },
       ]}
     >
       <div>
@@ -30,4 +35,4 @@ export const TransformNode = ({ id, data }) => {
       </div>
     </NodeAbstraction>
   );
-}
+};
