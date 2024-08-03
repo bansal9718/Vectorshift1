@@ -14,7 +14,7 @@
 First, clone the project repository to your local machine:
 
 ```bash
-git clone "url of the project"
+git clone "https://github.com/bansal9718/Vectorshift1.git"
 ```
 
 ### 2. Install Frontend Dependencies
