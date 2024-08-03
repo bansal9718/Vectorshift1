@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Project Setup and Running Instructions
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Prerequisites
 
-## Available Scripts
+- **Node.js** (for frontend)
+- **Python** (for backend)
+- **Git** (for cloning the repository)
+- **Git Bash** or **Windows Subsystem for Linux (WSL)** (for running the shell script on Windows)
 
-In the project directory, you can run:
+## Setup Instructions
 
-### `npm start`
+### 1. Clone the Repository
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+First, clone the project repository to your local machine:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+git clone "url of the project"
+```
 
-### `npm test`
+### 2. Install Frontend Dependencies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Navigate to the `frontend` directory and install the required Node.js packages:
 
-### `npm run build`
+```bash
+cd vectorshiftcopy/frontend
+npm install or npm i 
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. Install Backend Dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Navigate to the `backend` directory and install the required Python packages:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+cd vectorshiftcopy/backend
+pip install fastapi uvicorn networkx pydantic
+```
 
-### `npm run eject`
+### 4. Running Servers Simultaneously
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+A shell script named `start-all.sh` is provided in the root directory to run both frontend and backend servers simultaneously.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### For macOS and Linux
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Open a terminal.
+- Navigate to the root directory where `start-all.sh` is located:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  ```bash
+  cd path/to/root
+  ```
 
-## Learn More
+- Make sure `start-all.sh` is executable:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  ```bash
+  chmod +x start-all.sh
+  ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Run the script:
 
-### Code Splitting
+  ```bash
+  ./start-all.sh
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### For Windows
 
-### Analyzing the Bundle Size
+Use Git Bash or Windows Subsystem for Linux (WSL) to run the shell script.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Open Git Bash and navigate to the root directory:
 
-### Making a Progressive Web App
+  ```bash
+  cd /vectorshiftcopy
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Ensure the script has execute permissions and run it:
 
-### Advanced Configuration
+  ```bash
+  chmod +x start-all.sh
+  ./start-all.sh
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 5. Verify Servers Are Running
 
-### Deployment
+Check the terminal output to ensure both frontend and backend servers are running correctly. You should see logs indicating that both servers have started successfully.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Troubleshooting
 
-### `npm run build` fails to minify
+- **Script Permissions**: If you encounter permission issues on macOS or Linux, use `chmod +x start-all.sh` to make the script executable.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Dependency Issues**: Ensure all dependencies are correctly listed in `package.json` (for frontend). Reinstall packages if necessary.
+
+- **Running on Windows**: If Git Bash or WSL is not available, you can run the frontend and backend servers separately using their respective commands in different terminal windows.
+
+## `start-all.sh` Script
+
+Here's the content of the `start-all.sh` script for reference:
+
+```bash
+#!/bin/bash
+
+# Start the frontend server
+echo "Starting frontend server..."
+cd path/to/frontend
+npm start 
+
+# Start the backend server
+echo "Starting backend server..."
+cd path/to/backend
+uvicorn main:app --reload 
+```
+

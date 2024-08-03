@@ -3,7 +3,7 @@ import NodeAbstraction from "../NodeAbstraction";
 import { Position } from "reactflow";
 import { IoDocumentTextOutline } from "react-icons/io5";
 
-export const TextNode = ({ id, data, updateNodeData }) => {
+export const TextNode = ({ id, data }) => {
   // State to manage the text input and handle configurations
   const [text, setText] = useState(data?.text || "{{input}}");
   const [handlesConfig, setHandlesConfig] = useState(data?.handlesConfig || []);
@@ -14,18 +14,16 @@ export const TextNode = ({ id, data, updateNodeData }) => {
       const regex = /\{\{(\w+)\}\}/g;
       const matches = Array.from(text.matchAll(regex));
       const newHandles = matches.map((match, index) => ({
-        type: "target", // Ensure the type matches your use case
+        type: "source", // Ensure the type matches your use case
         position: Position.Left,
         id: match[1], // Ensure unique ID
         style: { top: `${(index + 1) * 30}px` }, // Position handles vertically
       }));
-       
       setHandlesConfig(newHandles);
-      
     };
 
     extractHandlesFromText();
-  }, [text,id]);
+  }, [text, data?.id]);
 
   const handleTextChange = (event) => {
     setText(event.target.value);

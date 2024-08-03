@@ -29,6 +29,5 @@ export const LLMNode = ({ id }) => {
         <span>This is a LLM.</span>
       </div>
     </NodeAbstraction>
-    
   );
 };

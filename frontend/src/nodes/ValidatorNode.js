@@ -11,7 +11,7 @@ export const ValidatorNode = ({ id, data }) => {
       data={data}
       title={
         <div>
-        Validate
+          Validate
           <GrValidate style={{ marginLeft: "9px" }} />
         </div>
       }

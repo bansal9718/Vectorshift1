@@ -1,7 +1,7 @@
 // src/nodes/LoggerNode.js
-import React from 'react';
-import NodeAbstraction from '../NodeAbstraction';
-import { Position } from 'reactflow';
+import React from "react";
+import NodeAbstraction from "../NodeAbstraction";
+import { Position } from "reactflow";
 import { MdComputer } from "react-icons/md";
 
 export const LoggerNode = ({ id, data }) => {
@@ -11,24 +11,24 @@ export const LoggerNode = ({ id, data }) => {
       data={data}
       title={
         <div>
-      Logger
+          Logger
           <MdComputer style={{ marginLeft: "9px" }} />
         </div>
       }
-      handleNameChange={(name) => console.log('Logger name changed to:', name)}
-      handleTypeChange={(type) => console.log('Logger type changed to:', type)}
+      handleNameChange={(name) => console.log("Logger name changed to:", name)}
+      handleTypeChange={(type) => console.log("Logger type changed to:", type)}
       typeOptions={[
-        { value: 'Console', label: 'Console' },
-        { value: 'File', label: 'File' }
+        { value: "Console", label: "Console" },
+        { value: "File", label: "File" },
       ]}
       handlesConfig={[
-        { type: 'source', position: Position.Right, id: 'output' },
-        { type: 'target', position: Position.Left, id: 'input' }
+        { type: "source", position: Position.Right, id: "output" },
+        { type: "target", position: Position.Left, id: "input" },
       ]}
     >
-      <div >
+      <div>
         <span>Logger Node</span>
       </div>
     </NodeAbstraction>
   );
-}
+};

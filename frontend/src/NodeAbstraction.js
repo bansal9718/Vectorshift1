@@ -64,7 +64,7 @@ const NodeAbstraction = ({
           key={handle.id}
           type={handle.type}
           position={handle.position}
-          id={`${id}-${handle.id}`}
+          id={`${id}-${handle.id}`} // Construct handle ID
           style={handle.style}
         />
       ))}

@@ -95,7 +95,7 @@ export const SubmitButton = () => {
 };
 const styles = {
   button: {
-    marginTop:'20px' ,
+    marginTop: "20px",
     padding: "12px 24px", // Increase padding for better click area
     backgroundColor: "#faf884", // Green background
     color: "black", // White text color

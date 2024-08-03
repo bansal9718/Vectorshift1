@@ -26,7 +26,7 @@ export const FilterNode = ({ id, data }) => {
         { type: "target", position: Position.Left, id: "input" },
       ]}
     >
-      <div >
+      <div>
         <span>Filter Node</span>
       </div>
     </NodeAbstraction>
