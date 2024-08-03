@@ -13,7 +13,8 @@ export const TextNode = ({ id, data }) => {
     const extractHandlesFromText = () => {
       const regex = /\{\{(\w+)\}\}/g;
       const matches = Array.from(text.matchAll(regex));
-      const newHandles = matches.map((match, index) => ({
+    
+       const newHandles = matches.map((match, index) => ({
         type: "source", // Ensure the type matches your use case
         position: Position.Left,
         id: match[1], // Ensure unique ID

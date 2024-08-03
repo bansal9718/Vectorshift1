@@ -17,6 +17,7 @@ export const SubmitButton = () => {
   const [result, setResult] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isActive, setIsActive] = useState(false);
+  
   const handleSubmit = async () => {
     try {
       const response = await fetch("http://localhost:8000/pipelines/parse", {
@@ -93,6 +94,9 @@ export const SubmitButton = () => {
     </>
   );
 };
+
+
+
 const styles = {
   button: {
     marginTop: "20px",

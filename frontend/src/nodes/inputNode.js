@@ -23,7 +23,7 @@ export const InputNode = ({ id, data }) => {
       ]}
     >
       <div>
-        <span style={{ color: "gray" }}>Input the node data as specified </span>
+        <span style={{ color: "gray" }}>Input the node data as specified</span>
       </div>
     </NodeAbstraction>
   );
