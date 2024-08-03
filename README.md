@@ -76,7 +76,14 @@ Use Git Bash or Windows Subsystem for Linux (WSL) to run the shell script.
   chmod +x start-all.sh
   ./start-all.sh
   ```
-
+```
+If Error Appears 
+./start-all.sh: line 2: uvicorn: command not found
+The Add 
+cd backend && python-m uvicorn main:app --reload &
+cd frontend && npm run start
+in script-sh.all file.
+```
 ### 5. Verify Servers Are Running
 
 Check the terminal output to ensure both frontend and backend servers are running correctly. You should see logs indicating that both servers have started successfully.
